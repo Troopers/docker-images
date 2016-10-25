@@ -13,10 +13,10 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.gz"
 
-RUN npm install -g npm@3 bower less gulp
+RUN npm install -g bower less gulp
 # runs node.js as a background service
 RUN npm i nohup
-RUN gem install sass mailcatcher
+RUN gem install sass mailcatcher capistrano
 
 RUN docker-php-ext-install pdo_mysql
 RUN curl http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar > selenium-server-standalone-2.53.0.jar
