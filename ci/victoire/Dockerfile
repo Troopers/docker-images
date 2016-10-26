@@ -16,7 +16,7 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
 RUN npm install -g bower less gulp
 # runs node.js as a background service
 RUN npm i nohup
-RUN gem install sass mailcatcher capistrano
+RUN gem install sass mailcatcher capistrano capistrano-symfony capistrano-composer capistrano-file-permissions
 
 RUN docker-php-ext-install pdo_mysql
 RUN curl http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar > selenium-server-standalone-2.53.0.jar
