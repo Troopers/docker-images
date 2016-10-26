@@ -4,9 +4,17 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 4.1.1
 
-RUN apt-get clean && apt-get update && apt-get install software-properties-common -yqq && LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php -y
+RUN apt-get update && apt-get install -y \
+        libfreetype6-dev \
+        libjpeg62-turbo-dev \
+        libmcrypt-dev \
+        libpng12-dev \
+    && docker-php-ext-install -j$(nproc) iconv mcrypt \
+    && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
+    && docker-php-ext-install -j$(nproc) gd
+
 RUN apt-get update && apt-get install mysql-server mysql-client libmysqlclient18 mysql-common nodejs npm nodejs-legacy vim ruby-full git \
-    xvfb iceweasel default-jdk elasticsearch redis-server perl pwgen zip unzip libsqlite3-dev curl php7.0-gd -yqq && \
+    xvfb iceweasel default-jdk elasticsearch redis-server perl pwgen zip unzip libsqlite3-dev curl -yqq && \
     apt-get clean
 
 RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
