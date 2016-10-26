@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 4.1.1
 
-RUN apt-get clean && apt-get update
+RUN apt-get clean && add-apt-repository ppa:ondrej/php && apt-get update
 RUN apt-get install mysql-server mysql-client libmysqlclient18 mysql-common nodejs npm nodejs-legacy vim ruby-full git \
     xvfb iceweasel default-jdk elasticsearch redis-server perl pwgen zip unzip libsqlite3-dev curl php7.0-gd -yqq && \
     apt-get clean
