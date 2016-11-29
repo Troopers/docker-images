@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install bcmath
 
 RUN apt-get update && apt-get install mysql-server mysql-client libmysqlclient18 mysql-common nodejs npm nodejs-legacy vim ruby-full git \
-    xvfb iceweasel default-jdk elasticsearch redis-server perl pwgen zip unzip libsqlite3-dev curl php-bcmath -yqq && \
+    xvfb iceweasel default-jdk elasticsearch redis-server perl pwgen zip unzip libsqlite3-dev curl -yqq && \
     apt-get clean
 
 RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
