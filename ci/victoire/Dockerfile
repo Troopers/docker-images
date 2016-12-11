@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd
 
 RUN apt-get update && apt-get install mysql-server mysql-client libmysqlclient18 mysql-common nodejs npm nodejs-legacy vim ruby-full git \
-    xvfb iceweasel default-jdk elasticsearch redis-server perl pwgen zip unzip libsqlite3-dev curl rabbitmq-server -yqq && \
+    xvfb iceweasel default-jdk elasticsearch redis-server perl pwgen zip unzip libsqlite3-dev curl rabbitmq-server php-intl -yqq && \
     apt-get clean
 
 RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
