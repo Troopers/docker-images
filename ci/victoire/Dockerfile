@@ -31,5 +31,6 @@ RUN curl http://selenium-release.storage.googleapis.com/2.53/selenium-server-sta
 EXPOSE 22 80
 RUN curl -L -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.4/elasticsearch-2.3.4.tar.gz
 RUN tar -xvf elasticsearch-2.3.4.tar.gz
+RUN curl -o- -L https://yarnpkg.com/install.sh | bash
 
 WORKDIR "/var/www/app"
