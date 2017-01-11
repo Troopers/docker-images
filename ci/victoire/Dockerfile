@@ -21,7 +21,7 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.gz"
 
-RUN npm install -g bower less gulp
+RUN npm install -g bower less gulp grunt
 # runs node.js as a background service
 RUN npm i nohup
 RUN gem install sass mailcatcher capistrano capistrano-symfony capistrano-composer capistrano-file-permissions
