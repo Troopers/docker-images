@@ -1,4 +1,4 @@
-FROM php:7.0
+FROM php:7.1
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV NPM_CONFIG_LOGLEVEL info
