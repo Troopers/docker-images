@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
         libjpeg62-turbo-dev \
         libmcrypt-dev \
         libpng12-dev \
-    && docker-php-ext-install -j$(nproc) iconv mcrypt bcmath soap \
+    && docker-php-ext-install -j$(nproc) iconv mcrypt bcmath \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd
 
@@ -26,7 +26,7 @@ RUN npm install -g bower less gulp grunt
 RUN npm i nohup
 RUN gem install sass mailcatcher capistrano capistrano-symfony capistrano-composer capistrano-file-permissions
 
-RUN docker-php-ext-install pdo_mysql
+RUN docker-php-ext-install pdo_mysql soap
 RUN curl http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar > selenium-server-standalone-2.53.0.jar
 EXPOSE 22 80
 RUN curl -L -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.4/elasticsearch-2.3.4.tar.gz
