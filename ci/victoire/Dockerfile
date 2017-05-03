@@ -41,10 +41,7 @@ RUN git clone https://github.com/php-memcached-dev/php-memcached /usr/src/php/ex
   && docker-php-ext-configure memcached \
   && docker-php-ext-install memcached
 
-RUN pecl install mongodb \
-   && echo "extension=mongodb.so" > /etc/php/7.0/fpm/conf.d/20-mongodb.ini \
-   && echo "extension=mongodb.so" > /etc/php/7.0/cli/conf.d/20-mongodb.ini \
-   && echo "extension=mongodb.so" > /etc/php/7.0/mods-available/mongodb.ini
+RUN pecl install mongodb && echo "extension=mongodb.so" > /usr/local/etc/php/conf.d/ext-mongodb.ini
 
 EXPOSE 22 80
 RUN curl -L -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.4/elasticsearch-2.3.4.tar.gz
