@@ -35,6 +35,13 @@ RUN gem install sass mailcatcher capistrano capistrano-symfony capistrano-compos
 
 RUN docker-php-ext-install pdo_mysql soap
 RUN curl http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar > selenium-server-standalone-2.53.0.jar
+
+RUN git clone https://github.com/php-memcached-dev/php-memcached /usr/src/php/ext/memcached \
+  && cd /usr/src/php/ext/memcached && git checkout -b php7 origin/php7 \
+  && docker-php-ext-configure memcached \
+  && docker-php-ext-install memcached
+
+
 EXPOSE 22 80
 RUN curl -L -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.4/elasticsearch-2.3.4.tar.gz
 RUN tar -xvf elasticsearch-2.3.4.tar.gz
