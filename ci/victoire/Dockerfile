@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN apt-get install mysql-server mysql-client libmysqlclient18 mysql-common nodejs npm nodejs-legacy vim ruby-full git \
     xvfb iceweasel default-jdk elasticsearch redis-server perl pwgen zip unzip libsqlite3-dev curl rabbitmq-server libxml2-dev \
-    libssh2-php libmemcached-dev -yqq
+    libssh2-php libmemcached-dev yarn -yqq
 
 RUN apt-get install -y libmagickwand-6.q16-dev --no-install-recommends \
    && ln -s /usr/lib/x86_64-linux-gnu/ImageMagick-6.8.9/bin-Q16/MagickWand-config /usr/bin \
