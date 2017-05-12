@@ -4,6 +4,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV NPM_CONFIG_LOGLEVEL info
 ENV NODE_VERSION 4.1.1
 
+RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+  echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+
 RUN apt-get update && apt-get install -y \
         libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng12-dev \
         zlib1g-dev libicu-dev g++ \
