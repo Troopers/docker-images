@@ -1,5 +1,6 @@
 FROM php:7.2-apache
 ENV DEBIAN_FRONTEND=noninteractive
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
 RUN apt-get update && apt-get install -y apt-utils
 
@@ -19,9 +20,6 @@ RUN apt-get install -y bash \
     libmemcached-dev \
     libpq-dev \
     netcat
-
-RUN pecl install xdebug-2.6.0 \
-    && docker-php-ext-enable xdebug
 
 RUN docker-php-ext-install -j$(nproc) iconv \
     bcmath \
