@@ -20,9 +20,6 @@ RUN apt-get install -y bash \
     libpq-dev \
     netcat
 
-RUN pecl install xdebug-2.6.0 \
-    && docker-php-ext-enable xdebug
-
 RUN docker-php-ext-install -j$(nproc) iconv \
     bcmath \
     mbstring \
