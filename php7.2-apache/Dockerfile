@@ -19,7 +19,8 @@ RUN apt-get install -y bash \
     git \
     libmemcached-dev \
     libpq-dev \
-    netcat
+    netcat \
+    cron
 
 RUN docker-php-ext-install -j$(nproc) iconv \
     bcmath \
