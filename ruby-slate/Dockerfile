@@ -5,7 +5,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get install -y ruby-dev libxml++2.6-dev \
     # includes gcc and make
-    build-essential
+    build-essential \
+    openssh-client
 
 RUN apt-get clean
 
