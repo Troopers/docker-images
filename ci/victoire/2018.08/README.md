@@ -42,10 +42,10 @@
       # …
     ```
 
-2. Change the values in Symfony parameters: set environment variables or update
-   `app/config/parameters.yml.dist` to set hosts and ports of the different
-   services
-3. Update host of mailcatcher in the `behat.yml.dist` file:
+    The prefix `SYMFONY__` is required for [Symfony 2.8](https://symfony.com/doc/2.8/configuration/external_parameters.html)
+    and has to be removed for [Symfony 3.4+](https://symfony.com/doc/3.4/configuration/external_parameters.html).
+
+2. Update host of mailcatcher in the `behat.yml.dist` file:
 
     ```yml
     default:
@@ -54,7 +54,7 @@
                 url: http://mailcatcher:1080
                 purge_before_scenario: true
     ```
-4. Launch Selenium before tests:
+3. Launch Selenium before tests:
 
     ```shell
     Xvfb :99 -ac &
