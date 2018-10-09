@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng-dev \
     zlib1g-dev libicu-dev g++ apt-transport-https netcat \
     mysql-server mysql-client mysql-common vim ruby-full git \
-    xvfb iceweasel perl pwgen zip unzip libsqlite3-dev curl libxml2-dev \
+    xvfb firefox-esr=52.9.0esr-1~deb9u1 perl pwgen zip unzip libsqlite3-dev curl libxml2-dev \
     gnupg
 
 RUN docker-php-ext-install -j$(nproc) iconv mcrypt bcmath mbstring \
