@@ -17,7 +17,7 @@ RUN docker-php-ext-install -j$(nproc) iconv mcrypt bcmath mbstring \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install pdo_mysql soap \
     # Support “easter_date” function
-    && docker-php-ext-configure calendar && docker-php-ext-install calendar \
+    && docker-php-ext-install calendar && docker-php-ext-configure calendar \
     # For “app/console server:start” command
     && docker-php-ext-install pcntl
 
