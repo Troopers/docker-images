@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     libfreetype6-dev libjpeg62-turbo-dev libmcrypt-dev libpng-dev \
     zlib1g-dev libicu-dev g++ apt-transport-https netcat \
     mysql-server mysql-client mysql-common vim ruby-full git \
-    xvfb firefox-esr=52.9.0esr-1~deb9u1 perl pwgen zip unzip libsqlite3-dev curl libxml2-dev \
+    xvfb firefox-esr=60.3.0esr-1~deb9u1 perl pwgen zip unzip libsqlite3-dev curl libxml2-dev \
     gnupg
 
 RUN docker-php-ext-install -j$(nproc) iconv mcrypt bcmath mbstring \
@@ -21,6 +21,10 @@ RUN docker-php-ext-install -j$(nproc) iconv mcrypt bcmath mbstring \
     # For “app/console server:start” command
     && docker-php-ext-install pcntl
 
+# Install APCu
+RUN pecl install apcu \
+    && echo "extension=apcu.so" > /usr/local/etc/php/conf.d/apcu.ini
+
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
     apt-get update && apt-get install -y nodejs && \
     npm install npm@latest -g
@@ -29,7 +33,7 @@ RUN apt-get install -y default-jdk
 
 RUN apt-get clean
 
-RUN curl http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar > selenium-server-standalone-2.53.0.jar
+RUN curl http://selenium-release.storage.googleapis.com/3.141.59/selenium-server-standalone-3.141.59.jar > selenium-server-standalone-3.141.59.jar
 
 RUN gem install sass
 
