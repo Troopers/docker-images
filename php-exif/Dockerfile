@@ -33,7 +33,7 @@ RUN apt-get install -y default-jdk
 
 RUN apt-get clean
 
-RUN curl http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar > selenium-server-standalone-2.53.0.jar
+RUN curl http://selenium-release.storage.googleapis.com/3.141.59/selenium-server-standalone-3.141.59.jar > selenium-server-standalone-3.141.59.jar
 
 RUN gem install sass
 
