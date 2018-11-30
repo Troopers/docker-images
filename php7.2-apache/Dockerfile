@@ -39,7 +39,7 @@ RUN curl -sS https://getcomposer.org/installer | php \
     && mv composer.phar /usr/local/bin/composer \
     && composer global require "hirak/prestissimo:^0.3"
 
-RUN a2enmod rewrite
+RUN a2enmod rewrite ssl
 
 RUN mkdir /app
 WORKDIR /app
