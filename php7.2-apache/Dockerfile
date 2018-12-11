@@ -1,6 +1,7 @@
 FROM php:7.2-apache
 ENV DEBIAN_FRONTEND=noninteractive
 ENV COMPOSER_ALLOW_SUPERUSER=1
+ARG TIMEZONE=Europe/Paris
 
 RUN apt-get update && apt-get install -y apt-utils
 
@@ -21,6 +22,10 @@ RUN apt-get install -y bash \
     libpq-dev \
     netcat \
     cron
+
+# Set timezone
+RUN ln -snf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && echo ${TIMEZONE} > /etc/timezone
+RUN printf '[PHP]\ndate.timezone = "%s"\n', ${TIMEZONE} > /usr/local/etc/php/conf.d/tzone.ini && date
 
 RUN docker-php-ext-install -j$(nproc) iconv \
     bcmath \
