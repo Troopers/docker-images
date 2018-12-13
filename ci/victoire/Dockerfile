@@ -66,4 +66,8 @@ EXPOSE 22 80
 RUN curl -L -O https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.4/elasticsearch-2.3.4.tar.gz
 RUN tar -xvf elasticsearch-2.3.4.tar.gz
 
+RUN echo "memory_limit = 2048M" > /usr/local/etc/php/conf.d/memory.ini
+RUN php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php && php composer-setup.php && rm composer-setup.\
+    mv composer.phar /usr/bin/composer
+
 WORKDIR "/var/www/app"
