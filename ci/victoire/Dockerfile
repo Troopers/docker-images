@@ -2,7 +2,7 @@ FROM php:7.1
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION 6.11.1
+ENV NODE_VERSION 6.17.0
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
   echo "deb http://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
@@ -38,6 +38,7 @@ RUN gem install sass mailcatcher capistrano capistrano-symfony capistrano-compos
 
 RUN docker-php-ext-install pdo_mysql soap
 RUN curl http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar > selenium-server-standalone-2.53.0.jar
+RUN curl https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar > selenium-server-standalone-3.jar
 
 RUN git clone https://github.com/php-memcached-dev/php-memcached /usr/src/php/ext/memcached \
   && cd /usr/src/php/ext/memcached && git checkout -b php7 origin/php7 \
