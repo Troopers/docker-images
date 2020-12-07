@@ -35,9 +35,7 @@ RUN docker-php-ext-configure intl && docker-php-ext-install intl \
 
 RUN apt-get clean; rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
 
-RUN curl -sS https://getcomposer.org/installer | php \
-    && mv composer.phar /usr/local/bin/composer \
-    && composer global require "hirak/prestissimo:^0.3"
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
 
 RUN a2enmod rewrite ssl
 
