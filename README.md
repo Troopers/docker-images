@@ -10,6 +10,7 @@ Images:
 - [2018.08](ci/victoire/2018.08/): Use this image to bootstrap your Victoire's project test suite with services in containers
 - [nginx-node](nginx-node/): Use this image as a base image for running node
 - [ruby-capistrano-ssh](ruby-capistrano-ssh/): Use this image to deploy projects with Capistrano from GitLab CI
+- [cypress-docker](cypress-docker/): Use this image to run Cypress on CI
 
 [Docker Hub]: https://hub.docker.com/r/troopers/docker-images/
 [Docker Hub Build Image]: https://img.shields.io/docker/build/troopers/docker-images.svg
